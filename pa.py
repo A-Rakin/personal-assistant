@@ -34,15 +34,46 @@ def take_command():
 
     return command.lower()    
 
+def open_youtube(query=None):
+    if query:
+        webbrowser.open(f"https://www.youtube.com/results?search_query={query}")
+    else:
+        webbrowser.open("https://www.youtube.com")
+
 # Function to respond to different commands
 def respond(command):
+
+    # Greeting
     if 'hello' in command or 'hi' in command:
         speak("Hello! How can I assist you today?")
-    
+
+    # Time
     elif 'time' in command:
         current_time = datetime.datetime.now().strftime("%I:%M %p")
         speak(f"The current time is {current_time}")
 
+    # Open YouTube
+    elif 'open youtube' in command:
+        speak("Opening YouTube")
+        webbrowser.open("https://www.youtube.com")
+
+    # Play on YouTube
+    elif 'play' in command and 'youtube' in command:
+        speak("What should I play?")
+        query = take_command()
+        if query:
+            speak(f"Playing {query} on YouTube")
+            open_youtube(query)
+
+    # Search on YouTube
+    elif 'search' in command and 'youtube' in command:
+        speak("What should I search on YouTube?")
+        query = take_command()
+        if query:
+            speak(f"Searching {query} on YouTube")
+            open_youtube(query)
+
+    # Google search
     elif 'search' in command:
         speak("What would you like to search for?")
         search_query = take_command()
@@ -50,6 +81,7 @@ def respond(command):
             speak(f"Searching for {search_query}")
             webbrowser.open(f"https://www.google.com/search?q={search_query}")
 
+    # Open applications
     elif 'open' in command:
         if 'notepad' in command:
             speak("Opening Notepad")
@@ -58,13 +90,14 @@ def respond(command):
             speak("Opening Calculator")
             os.system("calc")
 
+    # Exit
     elif 'bye' in command or 'exit' in command or 'quit' in command:
         speak("Goodbye! Have a great day.")
         exit()
 
+    # Unknown command
     else:
         speak("I'm sorry, I don't know that command.")
-
 # Main function to run the assistant
 def run_assistant():
     speak("Hello, I am your assistant. How can I help you?")
