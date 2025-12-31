@@ -5,11 +5,17 @@ A simple Python-based voice-controlled personal assistant that can listen to voi
 📌 Features
 
 🗣️ Speech Recognition (Voice → Text)
+
 🔊 Text-to-Speech Response
+
 ⏰ Tell current time
+
 🔍 Google Search via voice
+
 ▶️ YouTube search & play
+
 🧾 Open system applications (Notepad, Calculator)
+
 ❌ Exit assistant with voice command
 
 Make sure to use the python version 3.10 or 3.11 for pyaudio
