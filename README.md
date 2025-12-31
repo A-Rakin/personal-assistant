@@ -1,4 +1,4 @@
-Python Voice Assistant
+Python Personal Assistant
 
 A simple Python-based voice-controlled personal assistant that can listen to voice commands, respond using speech, open applications, search the web, and interact with YouTube.
 
